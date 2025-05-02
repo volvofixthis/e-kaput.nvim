@@ -84,9 +84,9 @@ utils.formatErrors = function(diagnostics, config)
       end
     elseif type(error) == 'string' then
       local errorMessage = severitySigns[value['severity']]
-        .. ' '
-        .. error
-        .. source
+          .. ' '
+          .. error
+          .. source
       errors[key] = { message = errorMessage, severity = value['severity'] }
     end
   end
@@ -113,6 +113,7 @@ utils.errorBuffer = function(errors)
   end
 
   for key, value in ipairs(errors) do
+    if key > 2 then break end
     local message = value['message']
 
     local line = key - 1
